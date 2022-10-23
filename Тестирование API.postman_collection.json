@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "7159bf5c-a4fd-4d59-b57a-572a76abf384",
+		"name": "Тестирование API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Регистрация",
+			"item": [
+				{
+					"name": "Регистрация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ivan@gmail.com\",\n    \"password\": \"ivanivan\",\n    \"fio\": \"Иванов Иван Иванович\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Валидация полей",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ivangmail.com\",\n    \"password\": \"aniva\",\n    \"fio\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Пустые поля",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"\",\n    \"password\": \"\",\n    \"fio\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Продукт",
+			"item": [
+				{
+					"name": "Список всех продуктов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление продукта",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2Mzc0MTIxLCJpYXQiOjE2NjYzNzM4MjEsImp0aSI6ImRjODdhZTI1ODcyODQwMzRhNzI4OTY4ZDcwYTU5N2JlIiwidXNlcl9pZCI6Mn0.Rw4QIiYi4qUFZcPrMifkKBYMEqNhVRBkvGmdOmZGvrE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Product name 3\",\n\"description\": \"Product description 3\",\n\"price\": 300.56\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/product",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление продукта",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2Mzc0MTIxLCJpYXQiOjE2NjYzNzM4MjEsImp0aSI6ImRjODdhZTI1ODcyODQwMzRhNzI4OTY4ZDcwYTU5N2JlIiwidXNlcl9pZCI6Mn0.Rw4QIiYi4qUFZcPrMifkKBYMEqNhVRBkvGmdOmZGvrE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/product/30",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"product",
+								"30"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Авторизация",
+			"item": [
+				{
+					"name": "Логин",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout (нет)",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Корзина",
+			"item": [
+				{
+					"name": "Добавление товара в корзину",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MzYyMDkyLCJpYXQiOjE2NjYzNjE3OTIsImp0aSI6ImY3MGJhYTQzZjI3MDQwMjFiOWE2MWQ3NTAyYTdjMmFiIiwidXNlcl9pZCI6Mn0.k_zmoybrDTTEUQx0AFyoW9YMCOUiJxaPABf7aWgtvCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cart/15",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cart",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр своей корзины",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MzYyMDkyLCJpYXQiOjE2NjYzNjE3OTIsImp0aSI6ImY3MGJhYTQzZjI3MDQwMjFiOWE2MWQ3NTAyYTdjMmFiIiwidXNlcl9pZCI6Mn0.k_zmoybrDTTEUQx0AFyoW9YMCOUiJxaPABf7aWgtvCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cart",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление товара в корзине",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MzYyNTM0LCJpYXQiOjE2NjYzNjIyMzQsImp0aSI6ImYxMWRmNDc2ZjFjMTQ4ZWRhNzIxOTVjYjRlZTVmYzQ2IiwidXNlcl9pZCI6Mn0.agSsL2rcaiPdOMZRHZ5sB0Q_Wf-qKTGIB0DfPI25KeY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cart/9",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cart",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверка удаления",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MzYyNTM0LCJpYXQiOjE2NjYzNjIyMzQsImp0aSI6ImYxMWRmNDc2ZjFjMTQ4ZWRhNzIxOTVjYjRlZTVmYzQ2IiwidXNlcl9pZCI6Mn0.agSsL2rcaiPdOMZRHZ5sB0Q_Wf-qKTGIB0DfPI25KeY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cart",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://127.0.0.1:8000/api-shop",
+			"type": "default"
+		}
+	]
+}
